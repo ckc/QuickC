@@ -1,3 +1,4 @@
+username = "ntnoc"
 pw = ""
 
 which= ZocAsk("Which rack? [HC03-HI10]")
