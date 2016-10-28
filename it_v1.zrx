@@ -1,0 +1,24 @@
+username = "ntnoc"
+pw = ""
+
+which= ZocAsk("Which rack? [SA01]|[H01-I10]")
+type= ZocAsk("Which type of port? [0]Gi0/(shelf) [1]Gi1/0/(rack) [2]Gi2/0/(intra)")
+int= ZocAsk("Which port int? [01-40]")
+
+ZocSend "telnet IT12"||WHICH||"MS01^M"||username||"^M"
+
+
+IF type=0 THEN DO
+ZocSend ""||pw||"^Mena^MQue@11#aPl^Mconf t^Mint gi0/"||int||"^Mdo sh run int gi0/"||int||"^M"
+END
+IF type=1 THEN DO
+ZocSend ""||pw||"^Mena^MQue@11#aPl^Mconf t^Mint gi0/"||int||"^Mdo sh run int gi1/0/"||int||"^M"
+END
+IF type=2 THEN DO
+ZocSend ""||pw||"^Mena^MQue@11#aPl^Mconf t^Mint gi0/"||int||"^Mdo sh run int gi2/0/"||int||"^M"
+END
+
+SAY "Tool v1.0 -- rexx.ckc.im"
+
+
+EXIT

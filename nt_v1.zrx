@@ -1,0 +1,14 @@
+username = "ntnoc"
+pw = ""
+
+which= ZocAsk("Which floor? [17|18|20]")
+ms= ZocAsk("Which rack / shelf? [01-xx]")
+int= ZocAsk("Which port int? [01-40]")
+
+ZocSend "telnet NT"||WHICH||"MS"||MS||"^M"||username||"^M"||pw||"^M"
+
+ZocSend "ena^MQue@11#aPl^Mconf t^Mint fa0/"||int||"^Mdo sh run int fa0/"||int||"^M"
+
+SAY "Tool v1.0 -- rexx.ckc.im"
+
+EXIT

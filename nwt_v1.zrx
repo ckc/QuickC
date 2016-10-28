@@ -1,0 +1,12 @@
+pw = ""
+
+which= ZocAsk("Which rack? [HC03-HI10]")
+int= ZocAsk("Which port int? [01-40]")
+
+ZocSend "telnet WP21"||WHICH||"MS01^M"||username||"^M"
+
+ZocSend ""||pw||"^Mena^MQue@11#aPl^Mconf t^Mint gi0/"||int||"^Mdo sh run int gi0/"||int||"^M"
+
+SAY "Tool v1.0 -- rexx.ckc.im"
+
+EXIT
